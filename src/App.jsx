@@ -37,9 +37,9 @@ function App() {
     setInput('');
     setIsLoading(true);
     setError(null);
-    
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
     try {
-      const response = await axios.post('http://localhost:3000/api/query', { query: input });
+      const response = await axios.post(`${API_URL}/query`, { query: input });
       
       setMessages(prev => [
         ...prev, 
